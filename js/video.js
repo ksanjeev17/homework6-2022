@@ -15,15 +15,15 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	video.play();
-	document.querySelector("#volume").innerHTML = video.volume * 100
-	console.log("The volume is at " + video.volume * 100)
-
+	let vol = document.querySelector("#volume").innerHTML = (video.volume*100) + "%";
 });
 
 document.querySelector("#slider").addEventListener("change",function() {
-	video.volume = this.value / 100
-	document.querySelector("#volume").innerHTML = video.volume * 100
-	console.log("The volume level is " + video.volume * 100)
+	console.log(this);
+	console.log(this.value);
+	var slide_value = this.value
+	video.volume = (slide_value / 100);
+	let vol = document.querySelector("#volume").innerHTML = (video.volume*100) + "%";
 });
 
 document.querySelector("#vintage").addEventListener("click", function() {
@@ -73,10 +73,12 @@ skip.addEventListener("click", function () {
 	console.log("Original Location " + video.currentTime)
 	if (video.currentTime < video.duration - 15) {
 		video.currentTime = video.currentTime + 15;
-		console.log("New Time is " + video.currentTime)
+		console.log("New Location " + video.currentTime)
 	}
 	else {
 		video.currentTime = 0;
-		console.log("New Time is " + video.currentTime)
+		console.log("New Location " + video.currentTime)
 	}
 })
+
+
